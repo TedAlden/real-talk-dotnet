@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dto="clr-namespace:RealTalk.Shared.Dto;assembly=RealTalk.Shared"
+    x:Class="RealTalk.Maui.Views.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10,0" Spacing="25">
+
+            <Editor Text="{Binding PostBody}" AutoSize="TextChanges" />
+
+            <Button Text="Post" Command="{Binding CreatePostCommand}" />
+
+            <CollectionView ItemsSource="{Binding Posts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="dto:PostDto">
+                        <Border>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Id}" />
+                                <Label Text="{Binding User.Username}" />
+                                <Label Text="{Binding CreatedAt}" />
+                                <Label Text="{Binding Content}" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Get posts" Command="{Binding GetPostsCommand}" />
+
+            <Button Text="Logout" Command="{Binding LogoutCommand}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

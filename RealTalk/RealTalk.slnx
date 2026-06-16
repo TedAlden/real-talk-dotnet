@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="RealTalk.Api/RealTalk.Api.csproj" />
+  <Project Path="RealTalk.Maui/RealTalk.Maui.csproj" />
+  <Project Path="RealTalk.Shared/RealTalk.Shared.csproj" />
+</Solution>
